@@ -1,0 +1,12 @@
+root{
+    --text: #03191a;
+    --background: #f6fefe;
+    --primary: #50baf7;
+    --secondary: #b37aed;
+    --accent: #e74fe5;    
+}
+
+* {
+    background: #50baf7;
+    font-size: xx-small;
+}
