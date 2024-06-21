@@ -1,5 +1,5 @@
 <?php
-include '../css/styles.css';
+include '../site//styles.css';
 require_once '_session.php';
 require_once 'utils.php';
 
@@ -21,34 +21,28 @@ if ($userData) {
     if (password_verify($pass, $userData['hash'])) {
         // We got here, so user and pass ok :>
 
-         // Save user info for later use
+        // Save user info for later use
         $_SESSION['user']['loggedIn'] = true;
         $_SESSION['user']['admin'] = $userData['admin'];
         $_SESSION['user']['forename'] = $userData['forename'];
         $_SESSION['user']['surname'] = $userData['surname'];
         // Heading over to homepage
         header('location: ../site/index.php');
+        exit();
+    } else {
+        echo '<h2>Incorrect password</h2>';
+        echo '<p>Try again or <a href="../site/form-signup.php">sign up</a>.</p>';
+        echo '<form method="POST" action="">
+                <input type="hidden" name="user" value="' . htmlspecialchars($user) . '">
+                <label for="pass">Password:</label>
+                <input type="password" name="pass" required>
+                <input type="submit" value="Try Again">
+              </form>';
     }
-
-else {
-    echo '<h2>Incorrect password</h2>';
-    echo '<p>Try again</p>';
-    }
-}
-
-else {
-    echo '<h2> user account doesnt exist</h2>';
-    header('location: ../database/form-signup.php');
+} else {
+    echo '<h2>User account does not exist</h2>';
+    echo '<p><a href="../site/form-signup.php">Sign up</a></p>';
 }
 
 echo '<p><a href="../site/index.php">Home</a></p>';
-
-// Did we actually have a user
-//     if ($userData == false) die('No user account');
-// // Have an account, so check password
-//     if ($pass != $userData['password']) die('Incorrect password');
-
-
-
-
 ?>
