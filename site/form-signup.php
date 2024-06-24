@@ -1,17 +1,37 @@
-<form method="POST" action="../database/process-signup.php">
 
-    <label for="forename">Forename</label>
-    <input id="forename" name="forename" type="text" required>
+<form method="post" action="../database/process-signup.php">
 
-    <label for="surname">Surname</label>
-    <input id="surname" name="surname" type="text" required>
+        <div class="input-group">
+          <label>Username</label>
+          <input type="text" name="username" value="<?php echo $username; ?>">
+        </div>
 
-    <label for="username">Username</label>
-    <input id="username" name="username" type="text" required>
+        <div class="input-group">
+          <label>Forename</label>
+          <input type="forename" name="forename" value="">
+        </div>
 
-    <label for="password">Password</label>
-    <input id="password" name="password" type="password" required>
+        <div class="input-group">
+          <label>Surname</label>
+          <input type="surname" name="surname" value="">
+        </div>
 
-    <input type="submit" value="Sign Up">
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" name="password_1">
+        </div>
 
-</form>
+        <div class="input-group">
+          <label>Confirm password</label>
+          <input type="password" name="password_2">
+        </div>
+
+        <div class="input-group">
+          <button type="submit" class="btn" name="reg_user">Register</button>
+        </div>
+        <p>
+                Already a member? <a href="login.php">Sign in</a>
+        </p>
+  </form>
+
+  <!-- Need to work out groups and how this will connect to website -->

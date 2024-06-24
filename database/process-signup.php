@@ -24,3 +24,5 @@ $stmt->execute([$fore, $midd, $sur, $user, $pass, $hash]);
 echo '<h2>Account created</h2>';
 echo '<p><a href="../site/index.php">Home</a></p>';
 ?>
+
+<!-- Need to fiqure out what to do with middlename -->
