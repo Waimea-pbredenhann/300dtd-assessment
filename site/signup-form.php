@@ -2,6 +2,13 @@
 <?php require 'partials/top.php'; ?>
 <?php require 'partials/header.php'; ?>
 
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+?>
+<!-- Any errors -->
+
 <main>
     <form method="post" action="process-signup.php">
         <div class="input-group">
