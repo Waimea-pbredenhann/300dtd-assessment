@@ -7,7 +7,7 @@
 
     <main>
 
-        <h1>Hello from the PHP Web App!</h1>
+      
     
     </main>
 

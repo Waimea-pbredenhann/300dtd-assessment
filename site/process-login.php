@@ -1,14 +1,19 @@
+
+<?php require_once '_config.php'; ?>
+<?php require_once 'lib/db.php'; ?>
+
+<?php require 'partials/top.php'; ?>
+
+    <?php require 'partials/header.php'; ?>
+
+    <main>
+
 <?php
-include '../site//styles.css';
-require_once '_session.php';
-require_once 'utils.php';
 
 consoleLog($_POST, 'Form Data');
 
-session_start();
-
 $user = $_POST['user'];
-$pass = $_POST['pass'];
+$pass = $_POST['password'];
 
 $db = connectToDB();
 $query = 'SELECT * FROM users WHERE username = ?';
@@ -27,7 +32,7 @@ if ($userData) {
         $_SESSION['user']['forename'] = $userData['forename'];
         $_SESSION['user']['surname'] = $userData['surname'];
         // Heading over to homepage
-        header('location: ../site/index.php');
+        header('location: ../site/user-view.php');
         exit();
     } else {
         echo '<h2>Incorrect password</h2>';
@@ -47,4 +52,12 @@ if ($userData) {
 echo '<p><a href="../site/index.php">Home</a></p>';
 ?>
 
-<!-- The try again needs working on -->
+
+?>
+
+
+    </main>
+
+    <?php require 'partials/footer.php'; ?>
+
+<?php require 'partials/bottom.php'; ?>

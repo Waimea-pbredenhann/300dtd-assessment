@@ -1,12 +1,87 @@
-root{
-    --text: #03191a;
-    --background: #f6fefe;
-    --primary: #50baf7;
-    --secondary: #b37aed;
-    --accent: #e74fe5;    
+:root {
+    --font-size:         1rem;
+
+    --border-color:      var(--pico-muted-border-color);
+    --accent-color:      var(--pico-color-pumpkin);
+
+    --link-active-color: var(--accent-color);
 }
 
-* {
-    background: #50baf7;
-    font-size: xx-small;
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+
+
+/* HEADER ---------------------------------------- */
+
+#main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+#main-header > * {
+    margin: 0;
+}
+
+#main-header > a {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* FOOTER ---------------------------------------- */
+
+#main-footer {
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+
+/* NAV ---------------------------------------- */
+
+#main-nav {
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+#main-nav menu {
+    margin: 0;
+}
+
+
+#main-nav a[aria-current="page"] {
+    color: var(--link-active-color);
+    text-decoration: underline;
+}
+
+
+/* MAIN ---------------------------------------- */
+
+main {
+    flex: 1;
+    max-width: 60rem;
+}
+
+
+/* LAYOUT ---------------------------------------- */
+
+section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
+}
+
+article {
+    border: 1px solid var(--border-color);
+    min-height: 6rem;
+}
+

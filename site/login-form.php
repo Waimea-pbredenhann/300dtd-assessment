@@ -1,14 +1,27 @@
-<form method="POST" action="../database/process-login.php">
 
-    <label for="">username</label>
-    <input name="user" type="text" required>
+<?php require_once '_config.php'; ?>
 
-    <label for="">password</label>
-    <input name="pass" type="password" required>
+<?php require 'partials/top.php'; ?>
 
-    <input type="submit" value="Login">
+    <?php require 'partials/header.php'; ?>
 
+    <main>
+
+        <form method="POST" action="process-login.php">
+
+        <label for="user">Username</label>
+        <input type="text" name="user" required>
+
+        <label for="password">Password</label>
+        <input type="text" name="password" required>
+
+        <input type="submit" value="Login">
+
+        </form>
 
     
-</form>
-<!-- Needs work overall and orginazing -->
+    </main>
+
+    <?php require 'partials/footer.php'; ?>
+
+<?php require 'partials/bottom.php'; ?>
