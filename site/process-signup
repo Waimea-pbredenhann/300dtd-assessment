@@ -1,43 +1,46 @@
-
 <?php require_once '_config.php'; ?>
-
 <?php require 'partials/top.php'; ?>
-
 <?php require_once 'lib/db.php'; ?>
+<?php require 'partials/header.php'; ?>
 
-    <?php require 'partials/header.php'; ?>
-
-    <main>
-
+<main>
 <?php
+    consoleLog($_POST, 'Form Data');
 
-        consoleLog($_POST, 'Form Data');
+    $fore = $_POST['forename'];
+    $sur = $_POST['surname'];
+    $user = $_POST['username'];
+    $pass1 = $_POST['password_1'];
+    $pass2 = $_POST['password_2'];
 
-        $fore = $_POST['forename'];
-        $midd = $_POST['middlename'];
-        $sur = $_POST['surname'];
-        $user = $_POST['username'];
-        $pass = $_POST['password'];
+    if ($pass1 !== $pass2) {
+        echo '<h2>Passwords do not match</h2>';
+        echo '<p><a href="signup-form.php">Try again</a></p>';
+        exit();
+    }
 
-        $hash = password_hash($pass, PASSWORD_DEFAULT);
-        consoleLog($hash, 'Hashed Password');
+    $hash = password_hash($pass1, PASSWORD_DEFAULT);
+    consoleLog($hash, 'Hashed Password');
 
-        $db = connectToDB();
+    $db = connectToDB();
 
-        $query = 'INSERT INTO users (forename, middlename, surname, username, password, hash)
-                VALUES (?, ?, ?, ?, ?, ?)';
-        $stmt = $db->prepare($query);
-        $stmt->execute([$fore, $midd, $sur, $user, $pass, $hash]);
-
+    $query = 'INSERT INTO users (forename, surname, username, hash) VALUES (?, ?, ?, ?)';
+    $stmt = $db->prepare($query);
+    try {
+        $stmt->execute([$fore, $sur, $user, $hash]);
         echo '<h2>Account created</h2>';
         echo '<p><a href="index.php">Home</a></p>';
-        ?>
+    } catch (PDOException $e) {
+        if ($e->getCode() == 23000) { // Duplicate entry error code
+            echo '<h2>Username already exists</h2>';
+            echo '<p><a href="signup-form.php">Try again</a></p>';
+        } else {
+            echo '<h2>Error: ' . $e->getMessage() . '</h2>';
+            echo '<p><a href="signup-form.php">Try again</a></p>';
+        }
+    }
+?>
+</main>
 
-        <!-- Need to fiqure out what to do with middlename -->
-
-
-    </main>
-
-    <?php require 'partials/footer.php'; ?>
-
+<?php require 'partials/footer.php'; ?>
 <?php require 'partials/bottom.php'; ?>
