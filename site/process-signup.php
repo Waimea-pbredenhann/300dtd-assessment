@@ -3,6 +3,12 @@
 <?php require_once 'lib/db.php'; ?>
 <?php require 'partials/header.php'; ?>
 
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+?>
+<!-- Any errors -->
 <main>
 <?php
     consoleLog($_POST, 'Form Data');

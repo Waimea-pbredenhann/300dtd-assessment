@@ -1,12 +1,15 @@
 
 <?php require_once '_config.php'; ?>
-
 <?php require_once 'lib/db.php'; ?>
-
 <?php require 'partials/top.php'; ?>
+<?php require 'partials/header.php'; ?>
 
-    <?php require 'partials/header.php'; ?>
-
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+?>
+<!-- Any errors -->
     <main>
 
 <?php
@@ -52,10 +55,6 @@ if ($userData) {
 
 echo '<p><a href="../site/index.php">Home</a></p>';
 ?>
-
-
-?>
-
 
     </main>
 

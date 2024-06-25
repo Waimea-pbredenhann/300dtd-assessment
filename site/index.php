@@ -9,6 +9,13 @@
 
         <h1>Hello from the PHP Web App!</h1>
     
+        <ul>
+            <li>check actions/login-user.php</li>
+            <li>check actions/logout-user.php</li>
+            <li>check on js (optional)</li>
+            
+        </ul>
+
     </main>
 
     <?php require 'partials/footer.php'; ?>
