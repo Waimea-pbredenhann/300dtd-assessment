@@ -1,5 +1,6 @@
 
 <?php require_once '_config.php'; ?>
+
 <?php require_once 'lib/db.php'; ?>
 
 <?php require 'partials/top.php'; ?>

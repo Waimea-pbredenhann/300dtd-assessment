@@ -1,0 +1,43 @@
+
+<?php require_once '_config.php'; ?>
+
+<?php require 'partials/top.php'; ?>
+
+<?php require_once 'lib/db.php'; ?>
+
+    <?php require 'partials/header.php'; ?>
+
+    <main>
+
+<?php
+
+        consoleLog($_POST, 'Form Data');
+
+        $fore = $_POST['forename'];
+        $midd = $_POST['middlename'];
+        $sur = $_POST['surname'];
+        $user = $_POST['username'];
+        $pass = $_POST['password'];
+
+        $hash = password_hash($pass, PASSWORD_DEFAULT);
+        consoleLog($hash, 'Hashed Password');
+
+        $db = connectToDB();
+
+        $query = 'INSERT INTO users (forename, middlename, surname, username, password, hash)
+                VALUES (?, ?, ?, ?, ?, ?)';
+        $stmt = $db->prepare($query);
+        $stmt->execute([$fore, $midd, $sur, $user, $pass, $hash]);
+
+        echo '<h2>Account created</h2>';
+        echo '<p><a href="index.php">Home</a></p>';
+        ?>
+
+        <!-- Need to fiqure out what to do with middlename -->
+
+
+    </main>
+
+    <?php require 'partials/footer.php'; ?>
+
+<?php require 'partials/bottom.php'; ?>
