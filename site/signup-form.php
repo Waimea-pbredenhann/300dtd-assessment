@@ -36,7 +36,6 @@ error_reporting(E_ALL);
         </div>
         <p>
             Already a member? <a href="login-form.php">Sign in</a>
-            <a href="process-signup.php">-----</a>
         </p>
     </form>
 </main>

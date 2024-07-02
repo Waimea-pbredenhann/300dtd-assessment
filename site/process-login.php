@@ -17,7 +17,7 @@ error_reporting(E_ALL);
 consoleLog($_POST, 'Form Data');
 
 $user = $_POST['user'];
-$pass = $_POST['password'];
+$pass1 = $_POST['password'];
 
 $db = connectToDB();
 $query = 'SELECT * FROM users WHERE username = ?';
@@ -27,7 +27,7 @@ $userData = $stmt->fetch();
 
 consoleLog($userData, 'DB data');
 if ($userData) {
-    if (password_verify($pass, $userData['hash'])) {
+    if (password_verify($pass1, $userData['hash'])) {
         // We got here, so user and pass ok :>
 
         // Save user info for later use
@@ -43,8 +43,8 @@ if ($userData) {
         echo '<p>Try again or <a href="../site/form-signup.php">sign up</a>.</p>';
         echo '<form method="POST" action="">
                 <input type="hidden" name="user" value="' . htmlspecialchars($user) . '">
-                <label for="pass">Password:</label>
-                <input type="password" name="pass" required>
+                <label for="password">Password:</label>
+                <input type="password" name="password" required>
                 <input type="submit" value="Try Again">
               </form>';
     }

@@ -10,8 +10,11 @@
         <h1>Hello from the PHP Web App!</h1>
     
         <ul>
-            <li>check actions/login-user.php</li>
-            <li>check actions/logout-user.php</li>
+            <li>Complete the view/list page</li>
+            <li>Use HTMX in view/list, creating list, and etc.</li>
+            <li>Link login/sign-up to page</li>
+            <li>Update development page</li>
+            <li>Deleting lists/views </li>
             <li>check on js (optional)</li>
             
         </ul>

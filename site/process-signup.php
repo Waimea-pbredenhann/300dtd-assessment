@@ -9,6 +9,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 ?>
 <!-- Any errors -->
+
+<!-- Note to self - Maybe add methods to have a better secured signup, A-Z, numbers, special characters, etc.  -->
 <main>
 <?php
     consoleLog($_POST, 'Form Data');
@@ -30,10 +32,10 @@ error_reporting(E_ALL);
 
     $db = connectToDB();
 
-    $query = 'INSERT INTO users (forename, surname, username, hash) VALUES (?, ?, ?, ?)';
+    $query = 'INSERT INTO users (forename, surname, username, password, hash) VALUES (?, ?, ?, ?, ?)';
     $stmt = $db->prepare($query);
     try {
-        $stmt->execute([$fore, $sur, $user, $hash]);
+        $stmt->execute([$fore, $sur, $user, $pass1, $hash]);
         echo '<h2>Account created</h2>';
         echo '<p><a href="index.php">Home</a></p>';
     } catch (PDOException $e) {
