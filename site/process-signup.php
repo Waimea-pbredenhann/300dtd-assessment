@@ -21,12 +21,12 @@ error_reporting(E_ALL);
     $pass1 = $_POST['password_1'];
     $pass2 = $_POST['password_2'];
 
-    if ($pass1 !== $pass2) {
+    if ($pass1 !== $pass2) {// Checking if pass1 and pass2 match
         echo '<h2>Passwords do not match</h2>';
         echo '<p><a href="signup-form.php">Try again</a></p>';
         exit();
     }
-
+    //Hashing pass1 
     $hash = password_hash($pass1, PASSWORD_DEFAULT);
     consoleLog($hash, 'Hashed Password');
 
@@ -47,6 +47,7 @@ error_reporting(E_ALL);
             echo '<p><a href="signup-form.php">Try again</a></p>';
         }
     }
+    //^^^^^^^^^^^^^^^^^^^^^^^^ Not working, or doesn't do what I expect
 ?>
 </main>
 

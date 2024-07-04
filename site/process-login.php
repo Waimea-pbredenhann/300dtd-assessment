@@ -35,7 +35,7 @@ if ($userData) {
         $_SESSION['user']['admin'] = $userData['admin'];
         $_SESSION['user']['forename'] = $userData['forename'];
         $_SESSION['user']['surname'] = $userData['surname'];
-        // Heading over to homepage
+        // Heading over to page :>
         header('location: ../site/user-view.php');
         exit();
     } else {
@@ -53,7 +53,7 @@ if ($userData) {
     echo '<p><a href="../site/form-signup.php">Sign up</a></p>';
 }
 
-echo '<p><a href="../site/index.php">Home</a></p>';
+echo '<p>Try again or <a href="../site/index.php">Homepage</a></p>';
 ?>
 
     </main>

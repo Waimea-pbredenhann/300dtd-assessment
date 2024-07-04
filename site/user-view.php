@@ -18,6 +18,14 @@
         </ul>
 
     </main>
-
+<?php require '../site/user-list.php';?>
 <?php require 'partials/footer.php'; ?>
 <?php require 'partials/bottom.php'; ?>
+
+<!-- 
+Create DB GET method
+Display DB GET method
+ 
+
+CSS (Last step)
+-->
